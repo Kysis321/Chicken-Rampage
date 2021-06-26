@@ -138,6 +138,7 @@ GameObject:
   - component: {fileID: 76374983}
   - component: {fileID: 76374986}
   - component: {fileID: 76374987}
+  - component: {fileID: 76374988}
   m_Layer: 6
   m_Name: Chicken
   m_TagString: Untagged
@@ -157,6 +158,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9322d565d22486f4d85114b4ccc9b831, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  animator: {fileID: 76374988}
 --- !u!50 &76374982
 Rigidbody2D:
   serializedVersion: 4
@@ -305,6 +307,25 @@ CircleCollider2D:
   m_Offset: {x: 0, y: -0.088958904}
   serializedVersion: 2
   m_Radius: 0.05812067
+--- !u!95 &76374988
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 76374980}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 59cc73a9df4a5ef4a9ed7fbbb415c9e2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &127957727
 GameObject:
   m_ObjectHideFlags: 0
@@ -428,7 +449,7 @@ GameObject:
   - component: {fileID: 170299749}
   m_Layer: 0
   m_Name: Win Zone
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
