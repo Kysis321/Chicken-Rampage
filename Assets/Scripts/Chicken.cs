@@ -8,7 +8,7 @@ public class Chicken : MonoBehaviour
     private float startPosY;
     private bool isBeingHeld = false;
 
-
+    public Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -19,6 +19,8 @@ public class Chicken : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animator.SetBool("isBeingHeld", isBeingHeld);
+
       if(isBeingHeld == true)
         {
             Vector3 mousePos;
