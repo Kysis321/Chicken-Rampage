@@ -7,23 +7,39 @@ public class winCond : MonoBehaviour
 {
 
     public int chick;
+    public float timerText = 10;
     public float gameEnd = 5;
     public bool chickCap;
-    public bool timerStart;
+    public bool endStart;
+    public bool roundStart;
     public Text winText;
     public Text gameEndText;
+    public Text endText;
     
 
     // Start is called before the first frame update
     void Start()
     {
-
+        roundStart = true;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (roundStart)
+        {
+            if (timerText > 0)
+            {
+                timerText -= Time.deltaTime;
+                DisplayTimeRound(timerText);
+            }
+            else
+            {
+                timerText = 0;
+                winText.text = "You Lose!";
+                endStart = true;
+            }
+        }
 
         if (chick == 2)
         {
@@ -34,15 +50,16 @@ public class winCond : MonoBehaviour
         {
             winText.text = "You WIN!";
 
-            timerStart = true;
+            endStart = true;
 
         }
-        if(timerStart)
+        if(endStart)
         {
             if (gameEnd > 0)
             {
                 gameEnd -= Time.deltaTime;
-                DisplayTime(gameEnd);
+                DisplayTimeEnd(gameEnd);
+                roundStart = false;
             }
             else
             {
@@ -69,7 +86,16 @@ public class winCond : MonoBehaviour
         }
     }
 
-    void DisplayTime(float timeToDisplay)
+    void DisplayTimeRound(float timeToDisplay)
+    {
+        timeToDisplay += 1;
+
+        float seconds = Mathf.FloorToInt(timeToDisplay % 60);
+
+        endText.text = "Time Remaining : " + string.Format("{00}", seconds);
+    }
+
+    void DisplayTimeEnd(float timeToDisplay)
     {
         timeToDisplay += 1;
 
