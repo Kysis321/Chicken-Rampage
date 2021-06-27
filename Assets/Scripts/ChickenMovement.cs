@@ -8,7 +8,9 @@ public class ChickenMovement : MonoBehaviour
     
     public bool mustPatrol;
     public LayerMask wallLayer;
+    public LayerMask groundLayer;
     public Collider2D bodyCollider;
+    public Collider2D groundCheck;
 
     public Rigidbody2D rb;
 
@@ -21,7 +23,7 @@ public class ChickenMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(mustPatrol)
+        if(mustPatrol && groundCheck.IsTouchingLayers(groundLayer))
         {
             Patrol();
         }
